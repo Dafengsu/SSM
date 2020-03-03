@@ -3,9 +3,22 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hzau.dao.UserDao">
+    <!--定义User的resultMap-->
+    <resultMap id="userAccountMapper" type="user">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="sex" column="sex"/>
+        <result property="birthday" column="birthday"/>
+        <result property="address" column="address"/>
+        <collection property="accounts" ofType="account">
+            <id property="id" column="aid"/>
+            <id property="uid" column="uid"/>
+            <id property="money" column="money"/>
+        </collection>
+    </resultMap>
     <!--配置查询所有-->
-    <select id="findAll" resultType="user">
-        select * from user
+    <select id="findAll" resultMap="userAccountMapper">
+        SELECT u.*,a.ID aid,a.UID,a.MONEY FROM user u LEFT OUTER JOIN account a on u.id = a.UID
     </select>
     <!--保存用户-->
     <insert id="saveUser" parameterType="user">
@@ -53,10 +66,36 @@
     </select>
 
     <!--根据queryVo的条件来查询vo-->
-    <select id="findUserByVo" parameterType="com.hzau.domain.QueryVo" resultType="user">
+    <select id="findUserByVo" parameterType="queryVo" resultType="user">
         SELECT *
         FROM user
         WHERE username LIKE #{user.username};
     </select>
 
+    <select id="findUserByCondition" resultType="user" parameterType="user">
+        SELECT * FROM user
+        <where>
+            <if test="username != null">
+                AND username = #{username}
+            </if>
+            <if test="sex != null">
+                AND sex = #{sex}
+            </if>
+        </where>
+
+    </select>
+    <sql id="defaultSelect">
+        SELECT * FROM user
+    </sql>
+    <!--根据QueryVo中的Ids查询列表-->
+    <select id="findUserInIds" resultType="user" parameterType="queryVo">
+        <include refid="defaultSelect"/>
+        <where>
+            <if test="ids != null and ids.size()>0">
+                <foreach collection="ids" open="and id in (" close=")" item="id" separator=",">
+                    #{id}
+                </foreach>
+            </if>
+        </where>
+    </select>
 </mapper>

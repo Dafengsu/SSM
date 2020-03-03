@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -55,7 +56,8 @@ public class UserDaoTest {
         //5.使用代理对象执行方法
         List<User> users = userDao.findAll();
         for (User user : users) {
-            System.out.println(user);
+            System.err.println(user);
+            System.err.println(user.getAccounts());
         }
 
     }
@@ -119,6 +121,30 @@ public class UserDaoTest {
         List<User> users = userDao.findUserByVo(queryVo);
         for (User u : users) {
             System.out.println(u);
+        }
+    }
+
+    @Test
+    public void findByCondition() {
+        User user = new User();
+//        user.setUsername("老王");
+        List<User> users = userDao.findUserByCondition(user);
+        for (User u : users) {
+            System.out.println(u);
+        }
+    }
+
+    @Test
+    public void findUserInIds() {
+        QueryVo queryVo = new QueryVo();
+        List<Integer> list = new ArrayList<>();
+        list.add(41);
+        list.add(42);
+        queryVo.setIds(list);
+
+        List<User> users = userDao.findUserInIds(queryVo);
+        for (User user : users) {
+            System.err.println(user);
         }
     }
 }
