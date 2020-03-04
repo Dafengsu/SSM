@@ -10,6 +10,7 @@
     <modules>
         <module>CustomMyBatis</module>
         <module>MyBatisBase</module>
+        <module>SpringBase</module>
     </modules>
     <packaging>pom</packaging>
     <dependencyManagement>
@@ -41,6 +42,13 @@
                 <artifactId>junit</artifactId>
                 <version>4.13</version>
                 <scope>test</scope>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>5.2.4.RELEASE</version>
             </dependency>
 
         </dependencies>
