@@ -7,6 +7,11 @@
     <!--配置properties-->
     <properties resource="jdbcConfig.properties"/>
     <!--使用typeAliases配置别名，它只能配置domain中类的别名-->
+    <settings>
+        <!--打开延迟加载开关-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
     <typeAliases>
         <!--typeAlias用于指定别名,type指定的是实体类全限定类名。alias属性指定别名，指定了别名就不在区分大小写。-->
         <!--<typeAlias type="com.hzau.domain.User" alias="user"/>-->

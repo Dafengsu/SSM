@@ -10,15 +10,12 @@
         <result property="sex" column="sex"/>
         <result property="birthday" column="birthday"/>
         <result property="address" column="address"/>
-        <collection property="accounts" ofType="account">
-            <id property="id" column="aid"/>
-            <id property="uid" column="uid"/>
-            <id property="money" column="money"/>
-        </collection>
+        <collection property="accounts" column="id" ofType="account" select="com.hzau.dao.AccountDao.findAccountByUid"/>
     </resultMap>
     <!--配置查询所有-->
     <select id="findAll" resultMap="userAccountMapper">
-        SELECT u.*,a.ID aid,a.UID,a.MONEY FROM user u LEFT OUTER JOIN account a on u.id = a.UID
+        SELECT *
+        FROM user;
     </select>
     <!--保存用户-->
     <insert id="saveUser" parameterType="user">

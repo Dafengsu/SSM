@@ -9,21 +9,12 @@
         <result property="uid" column="uid"/>
         <result property="money" column="money"/>
         <!--一对一的关系映射-->
-        <association property="user" resultMap="userMapper"/>
-    </resultMap>
-    <resultMap id="userMapper" type="user">
-        <id property="id" column="id"/>
-        <result column="username" property="username"/>
-        <result column="address" property="address"/>
-        <result column="sex" property="sex"/>
-        <result column="birthday" property="birthday"/>
+        <association property="user" column="uid" select="com.hzau.dao.UserDao.findById"/>
     </resultMap>
     <!--配置查询所有-->
     <select id="findAll" resultMap="accountUserMap">
-        SELECT u.*, a.ID AS aid, a.UID, a.MONEY
-        FROM account a,
-             user u
-        where u.id = a.UID;
+        SELECT *
+        FROM account;
     </select>
 
     <select id="findAllAccount" resultType="accountUser">
@@ -31,5 +22,11 @@
         FROM account a,
              user u
         WHERE u.id = a.UID;
+    </select>
+
+    <select id="findAccountByUid" resultType="account">
+        SELECT *
+        FROM account
+        where uid = #{uid};
     </select>
 </mapper>

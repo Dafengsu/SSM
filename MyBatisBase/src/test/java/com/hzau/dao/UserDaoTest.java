@@ -97,7 +97,7 @@ public class UserDaoTest {
     @Test
     public void findById() {
         User user = userDao.findById(70);
-        System.out.println(user);
+        System.err.println(user);
     }
 
     @Test

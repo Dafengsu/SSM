@@ -22,4 +22,6 @@ public interface AccountDao {
      * @return
      */
     List<AccountUser> findAllAccount();
+
+    List<Account> findAccountByUid();
 }
