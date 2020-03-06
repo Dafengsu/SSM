@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
  * @description 账户的持久层实现类
  * @date 2020/3/5
  */
-@Repository("accountDao1")
-public class AccountDaoImpl implements AccountDao {
+@Repository("accountDao2")
+public class AccountDaoImpl2 implements AccountDao {
     @Override
     public void saveAccount() {
-        System.out.println("保存了账户11111111111");
+        System.out.println("保存了账户222222222");
     }
 }

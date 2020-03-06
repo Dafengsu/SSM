@@ -11,6 +11,7 @@
         <module>CustomMyBatis</module>
         <module>MyBatisBase</module>
         <module>SpringBase</module>
+        <module>SpringBase2</module>
     </modules>
     <packaging>pom</packaging>
     <dependencyManagement>
@@ -49,6 +50,21 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>5.2.4.RELEASE</version>
+            </dependency>
+
+
+            <!-- https://mvnrepository.com/artifact/commons-dbutils/commons-dbutils -->
+            <dependency>
+                <groupId>commons-dbutils</groupId>
+                <artifactId>commons-dbutils</artifactId>
+                <version>1.7</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
+            <dependency>
+                <groupId>com.mchange</groupId>
+                <artifactId>c3p0</artifactId>
+                <version>0.9.5.5</version>
             </dependency>
 
         </dependencies>

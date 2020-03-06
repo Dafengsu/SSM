@@ -10,15 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
 
-    <artifactId>SpringBase</artifactId>
+    <artifactId>SpringBase2</artifactId>
 
     <dependencies>
-
-<!--        <dependency>-->
-<!--            <groupId>org.mybatis</groupId>-->
-<!--            <artifactId>mybatis</artifactId>-->
-<!--        </dependency>-->
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -35,15 +29,16 @@
             <scope>test</scope>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>commons-dbutils</groupId>-->
-<!--            <artifactId>commons-dbutils</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+        </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.mchange</groupId>-->
-<!--            <artifactId>c3p0</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+        </dependency>
 
     </dependencies>
+
 </project>

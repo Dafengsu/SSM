@@ -7,7 +7,32 @@ package com.hzau.service;
  */
 public interface AccountService {
     /**
-     * 模拟保存账户
+     * 保存账户
      */
-    void saveAccount();
+    void saveAccount(/*Account account*/);
+
+//    /**
+//     * 查询所有
+//     *
+//     * @return
+//     */
+//    List<Account> findAllAccount();
+//
+//    /**
+//     * 查询一个
+//     * @return
+//     */
+//    Account findAccountById();
+//
+//    /**
+//     * 更新账户
+//     * @param account
+//     */
+//    void updateAccount(Account account);
+//
+//    /**
+//     * 删除
+//     * @param accountId
+//     */
+//    void deleteAccount(Integer accountId);
 }
